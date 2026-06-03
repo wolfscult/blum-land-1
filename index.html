@@ -488,6 +488,20 @@ a { color:inherit; text-decoration:none; }
 }
 .inline-cta--ghost:hover { background:rgba(184,150,46,.1); transform:translateY(-1px); }
 
+/* Overlay */
+.booking-overlay{position:fixed;inset:0;z-index:200;background:rgba(10,10,8,.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
+.booking-overlay.active{opacity:1;pointer-events:all}
+.booking-card{background:#f8f5f0;max-width:560px;width:100%;padding:48px}
+.booking-card__title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:#141414;margin-bottom:8px}
+.booking-card__sub{font-size:.8rem;color:#8a8480;letter-spacing:.1em;margin-bottom:36px}
+.booking-steps{display:flex;flex-direction:column;gap:20px;margin-bottom:40px}
+.booking-step{display:flex;gap:20px;align-items:flex-start}
+.booking-step__num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:#b8962e;line-height:1;flex-shrink:0;width:28px}
+.booking-step__title{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#141414;margin-bottom:4px}
+.booking-step__text{font-size:.83rem;color:#5a5550;line-height:1.6}
+.booking-card__btn{width:100%;background:#b8962e;border:none;padding:18px;font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#141414;cursor:pointer;transition:background .2s}
+.booking-card__btn:hover{background:#d4ad46}
+.booking-card__close{float:right;background:none;border:none;font-size:1.2rem;color:#8a8480;cursor:pointer;margin:-8px -8px 0 0}
 </style>
 </head>
 <body>
@@ -1047,12 +1061,22 @@ window.addEventListener('scroll', () => {
 }, {passive:true});
 
 // ── Calendly popup ──
+var _calendlyUrl = '';
 function openCalendly(url) {
+  _calendlyUrl = url;
+  document.getElementById('booking-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeBooking() {
+  document.getElementById('booking-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function proceedToCalendly() {
+  closeBooking();
   if(typeof Calendly !== 'undefined') {
-    Calendly.initPopupWidget({url: url});
+    Calendly.initPopupWidget({url: _calendlyUrl});
   } else {
-    // Fallback if Calendly JS not loaded
-    window.open(url, '_blank');
+    window.open(_calendlyUrl, '_blank');
   }
 }
 
@@ -1202,6 +1226,27 @@ Email: doctor@clinicblum.com</p>
 <p>Центр применяет технические и организационные меры для защиты персональных данных от несанкционированного доступа, изменения, раскрытия или уничтожения, включая SSL-шифрование и ограничение доступа к данным для сотрудников.</p></div>
   </div>
 </div>
-
+<div class="booking-overlay" id="booking-overlay" onclick="if(event.target===this)closeBooking()">
+  <div class="booking-card">
+    <button class="booking-card__close" onclick="closeBooking()">✕</button>
+    <div class="booking-card__title" id="booking-title">Запись на консультацию</div>
+    <div class="booking-card__sub">Центр Профессора Блюма · Марбелья</div>
+    <div class="booking-steps">
+      <div class="booking-step">
+        <div class="booking-step__num">01</div>
+        <div><div class="booking-step__title">Выберите время</div><div class="booking-step__text">Укажите удобную дату и время для видеозвонка с врачом Центра</div></div>
+      </div>
+      <div class="booking-step">
+        <div class="booking-step__num">02</div>
+        <div><div class="booking-step__title">Оплатите консультацию</div><div class="booking-step__text">Безопасная оплата картой. На вашу почту придёт ссылка на звонок</div></div>
+      </div>
+      <div class="booking-step">
+        <div class="booking-step__num">03</div>
+        <div><div class="booking-step__title">Консультация</div><div class="booking-step__text">Подключитесь по ссылке в письме. Подготовьте имеющиеся анализы и снимки</div></div>
+      </div>
+    </div>
+    <button class="booking-card__btn" id="booking-btn" onclick="proceedToCalendly()">Выбрать время →</button>
+  </div>
+</div>
 </body>
 </html>
