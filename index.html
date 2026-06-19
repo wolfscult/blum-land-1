@@ -1111,9 +1111,20 @@ function initPhoneCodes() {
   PHONE_CODES.forEach(function(c, i){
     var o = document.createElement('option');
     o.value = c[0]; o.textContent = c[0] + ' ' + c[1];
-    if(i === 0) o.selected = true; // ES default
+    if(i === 0) o.selected = true;
     sel.appendChild(o);
   });
+  // автоопределение страны по IP (можно сменить вручную)
+  fetch('https://ipapi.co/json/')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(!d || !d.country_calling_code) return;
+      var code = d.country_calling_code;
+      for(var i=0; i<sel.options.length; i++){
+        if(sel.options[i].value === code){ sel.selectedIndex = i; break; }
+      }
+    })
+    .catch(function(){ /* оставляем +34 по умолчанию */ });
 }
 
 function openBooking() {
@@ -1164,8 +1175,12 @@ function validateStep(step) {
     if(document.getElementById('q-complaint').value.trim().length < 5){ showErr(3,'Опишите, что вас беспокоит'); return false; }
   }
   if(step === 4){
-    var num = document.getElementById('q-phone').value.replace(/[^0-9]/g,'');
-    if(num.length < 6){ showErr(4,'Введите корректный номер телефона'); return false; }
+    var raw = document.getElementById('q-phone').value.trim();
+    // только цифры, пробелы, дефисы, скобки
+    if(/[^0-9\s\-()]/.test(raw)){ showErr(4,'Номер может содержать только цифры'); return false; }
+    var num = raw.replace(/[^0-9]/g,'');
+    if(num.length < 7){ showErr(4,'Введите корректный номер телефона'); return false; }
+    if(num.length > 15){ showErr(4,'Слишком длинный номер'); return false; }
   }
   if(step === 5){
     var em = document.getElementById('q-email').value.trim();
