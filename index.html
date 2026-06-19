@@ -334,6 +334,18 @@ a { color:inherit; text-decoration:none; }
   color:var(--gold); cursor:pointer; transition:all .25s;
 }
 .pricing__btn:hover { background:rgba(184,150,46,.12); border-color:var(--gold); }
+.trust-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:64px;padding-top:48px;border-top:1px solid rgba(184,150,46,.15)}
+.trust-item{display:flex;align-items:center;gap:12px;max-width:280px}
+.trust-item__icon{width:32px;height:32px;flex-shrink:0;color:var(--gold);opacity:.85}
+.trust-item__text{font-size:.82rem;color:var(--sand);line-height:1.5}
+.trust-item__text strong{display:block;color:var(--gold-lt);font-family:var(--serif);font-size:.95rem;font-weight:500;margin-bottom:2px}
+@media(max-width:768px){.trust-bar{flex-direction:column;gap:24px;align-items:flex-start}}
+.pricing__how{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px}
+.pricing__how-step{background:rgba(255,255,255,.04);border-top:1px solid rgba(184,150,46,.2);padding:36px 30px}
+.pricing__how-num{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:rgba(184,150,46,.4);line-height:1;margin-bottom:16px}
+.pricing__how-title{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--gold-lt);margin-bottom:10px}
+.pricing__how-text{font-size:.84rem;color:var(--sand);line-height:1.7}
+@media(max-width:768px){.pricing__how{grid-template-columns:1fr}}
 .pricing__card--featured .pricing__btn {
   background:var(--gold); color:var(--charcoal); border-color:var(--gold);
 }
@@ -504,6 +516,39 @@ a { color:inherit; text-decoration:none; }
 .booking-card__btn{width:100%;background:#b8962e;border:none;padding:18px;font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#141414;cursor:pointer;transition:background .2s}
 .booking-card__btn:hover{background:#d4ad46}
 .booking-card__close{float:right;background:none;border:none;font-size:1.2rem;color:#8a8480;cursor:pointer;margin:-8px -8px 0 0}
+/* ── QUIZ ── */
+.quiz-progress{height:3px;background:rgba(0,0,0,.08);margin-bottom:32px;overflow:hidden}
+.quiz-progress__bar{height:100%;background:#b8962e;width:0;transition:width .35s ease}
+.quiz-step{display:none;animation:quizFade .35s ease}
+.quiz-step.active{display:block}
+@keyframes quizFade{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
+.quiz-q{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:#141414;line-height:1.3;margin-bottom:8px}
+.quiz-hint{font-size:.82rem;color:#8a8480;line-height:1.6;margin-bottom:24px}
+.quiz-cards{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.quiz-card{border:1px solid rgba(0,0,0,.12);background:#fff;padding:16px 20px;cursor:pointer;transition:all .18s;font-size:.92rem;color:#141414;display:flex;align-items:center;gap:12px}
+.quiz-card:hover{border-color:#b8962e;background:rgba(184,150,46,.04)}
+.quiz-card.selected{border-color:#b8962e;background:rgba(184,150,46,.08)}
+.quiz-card__check{width:18px;height:18px;border:1px solid rgba(0,0,0,.2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s}
+.quiz-card.selected .quiz-card__check{border-color:#b8962e;background:#b8962e}
+.quiz-card.selected .quiz-card__check::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff}
+.quiz-input{width:100%;border:1px solid rgba(0,0,0,.12);padding:14px 16px;font-family:'Raleway',sans-serif;font-size:.92rem;color:#141414;outline:none;transition:border-color .2s;background:#fff;margin-bottom:8px}
+.quiz-input:focus{border-color:#b8962e}
+.quiz-input::placeholder{color:#a8a29a}
+.quiz-textarea{min-height:96px;resize:vertical;line-height:1.6}
+.quiz-phone-row{display:flex;gap:8px;margin-bottom:8px}
+.quiz-phone-code{width:120px;flex-shrink:0}
+.quiz-err{font-size:.78rem;color:#c0392b;min-height:18px;margin-bottom:8px}
+.quiz-price-box{background:#fff;border:1px solid rgba(184,150,46,.3);border-left:3px solid #b8962e;padding:20px 22px;margin-bottom:24px}
+.quiz-price-box p{font-size:.88rem;color:#5a5550;line-height:1.7;margin:0}
+.quiz-price-box strong{color:#141414}
+.quiz-nav{display:flex;gap:10px;align-items:center}
+.quiz-back{background:none;border:none;color:#8a8480;font-size:.78rem;letter-spacing:.08em;cursor:pointer;padding:10px 4px;text-transform:uppercase;transition:color .2s}
+.quiz-back:hover{color:#141414}
+.quiz-next{flex:1;background:#b8962e;border:none;padding:16px;font-family:'Raleway',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#141414;cursor:pointer;transition:background .2s}
+.quiz-next:hover{background:#d4ad46}
+.quiz-next:disabled{background:#d8d2c8;cursor:not-allowed;color:#a8a29a}
+.quiz-policy{font-size:.72rem;color:#8a8480;line-height:1.5;margin-top:14px}
+.quiz-policy a{color:#b8962e}
 </style>
 </head>
 <body>
@@ -513,7 +558,7 @@ a { color:inherit; text-decoration:none; }
   <div class="wrap">
     <div class="topbar__inner">
       <div class="topbar__logo">Центр Профессора <span>Блюма</span></div>
-      <button class="topbar__cta" onclick="openBooking('150')">Записаться</button>
+      <button class="topbar__cta" onclick="openBooking()">Оставить заявку</button>
     </div>
   </div>
 </header>
@@ -535,7 +580,7 @@ a { color:inherit; text-decoration:none; }
       <div><div class="badge__num">50 лет</div><div class="badge__label">Клинической практики</div></div>
       <div><div class="badge__num">Marbella</div><div class="badge__label">Costa del Sol</div></div>
     </div>
-    <button class="inline-cta reveal" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Записаться на консультацию</button>
+    <button class="inline-cta reveal" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Оставить заявку</button>
   </div>
   <div class="hero__scroll">
     <span>Прокрутите</span>
@@ -561,7 +606,7 @@ a { color:inherit; text-decoration:none; }
           «Я начинаю там, где все методы уже применены, а болезнь осталась»
           <br><small style="font-size:.75em;font-style:normal;letter-spacing:.08em;color:var(--stone);">— Профессор Евгений Блюм</small>
         </div>
-      <button class="inline-cta inline-cta--ghost reveal" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Записаться на консультацию</button>
+      <button class="inline-cta inline-cta--ghost reveal" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Оставить заявку</button>
       </div>
       <div class="problem__cards reveal d1">
         <div class="problem__card">
@@ -666,7 +711,7 @@ a { color:inherit; text-decoration:none; }
           <div class="professor__cred"><div class="professor__cred-dot"></div><div class="professor__cred-text">63 патента в области восстановления здоровья человека</div></div>
           <div class="professor__cred"><div class="professor__cred-dot"></div><div class="professor__cred-text">Метод применяется в подготовке космонавтов к полётам и работе в экстремальных условиях</div></div>
         </div>
-        <button class="inline-cta reveal" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Записаться на консультацию</button>
+        <button class="inline-cta reveal" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Оставить заявку</button>
       </div>
     </div>
   </div>
@@ -789,7 +834,7 @@ a { color:inherit; text-decoration:none; }
         <span class="filter__tag">Тупик в стандартном лечении</span>
       </div>
       <div style="margin-top:48px;" class="reveal">
-        <button class="inline-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Записаться на консультацию</button>
+        <button class="inline-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Оставить заявку</button>
       </div>
     </div>
   </div>
@@ -924,7 +969,7 @@ a { color:inherit; text-decoration:none; }
       </div>
     </div>
     <div style="text-align:center;margin-top:56px;" class="reveal">
-      <button class="inline-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Записаться на консультацию</button>
+      <button class="inline-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth',block:'start'})">Оставить заявку</button>
     </div>
   </div>
 </section>
@@ -933,67 +978,49 @@ a { color:inherit; text-decoration:none; }
 <section class="pricing" id="pricing">
   <div class="wrap">
     <div class="reveal">
-      <div class="eyebrow">Консультация онлайн</div>
+      <div class="eyebrow">С чего начать</div>
       <div class="gold-rule"></div>
-      <h2 class="h2">С чего начать</h2>
+      <h2 class="h2">Первый шаг — бесплатная заявка</h2>
       <p class="pricing__intro">
-        Первый шаг — онлайн-консультация с врачом Центра. Вы разбираете свою ситуацию, получаете стратегию обследования и понимаете, как двигаться дальше.
+        Расскажите о своей ситуации в короткой анкете. Врач Центра изучит ваш случай и свяжется с вами, чтобы честно сказать — может ли метод помочь именно вам, и какой будет программа восстановления.
       </p>
     </div>
-    <div class="pricing__grid">
 
-      <!-- TIER 1 -->
-      <div class="pricing__card reveal d1">
-        <div class="pricing__tier">Начальная</div>
-        <div class="pricing__price"><sup>€</sup>150</div>
-        <div class="pricing__desc">Разбор ситуации и стратегия обследования</div>
-        <ul class="pricing__features">
-          <li class="pricing__feature">
-            <div class="pricing__feature-dot"></div>
-            <div class="pricing__feature-text"><strong style="color:var(--sand);">Исследование вашей проблемы</strong> — врач детально разбирает симптомы, историю болезни, предыдущие обследования и анализы</div>
-          </li>
-          <li class="pricing__feature">
-            <div class="pricing__feature-dot"></div>
-            <div class="pricing__feature-text"><strong style="color:var(--sand);">Персональная стратегия обследования</strong> — чёткий план: какие анализы сдать, какие органы проверить, на что обратить внимание. Без лишнего</div>
-          </li>
-          <li class="pricing__feature">
-            <div class="pricing__feature-dot"></div>
-            <div class="pricing__feature-text"><strong style="color:var(--sand);">Рекомендации по клинике</strong> — пройти обследование можно в вашем городе или в Марбелье</div>
-          </li>
-        </ul>
-        <button class="pricing__btn" onclick="openBooking('150')">
-          Выбрать время и записаться
-        </button>
+    <div class="pricing__how reveal">
+      <div class="pricing__how-step">
+        <div class="pricing__how-num">01</div>
+        <div class="pricing__how-title">Заполните анкету</div>
+        <div class="pricing__how-text">Несколько вопросов о вашем состоянии и контакты для связи. Занимает пару минут</div>
       </div>
-
-      <!-- TIER 2 -->
-      <div class="pricing__card pricing__card--featured reveal d2">
-        <div class="pricing__tier">Расширенная</div>
-        <div class="pricing__price"><sup>€</sup>300</div>
-        <div class="pricing__desc">Полная диагностика + персональный план восстановления</div>
-        <ul class="pricing__features">
-          <li class="pricing__feature">
-            <div class="pricing__feature-dot"></div>
-            <div class="pricing__feature-text"><strong style="color:var(--sand);">Исследование вашей проблемы</strong> — углублённый разбор с учётом всей доступной медицинской информации</div>
-          </li>
-          <li class="pricing__feature">
-            <div class="pricing__feature-dot"></div>
-            <div class="pricing__feature-text"><strong style="color:var(--sand);">Стратегия обследования</strong> — персональный план диагностики</div>
-          </li>
-          <li class="pricing__feature">
-            <div class="pricing__feature-dot"></div>
-            <div class="pricing__feature-text"><strong style="color:var(--sand);">Аналитическая карта организма</strong> — результаты интегрируются по 6 макроблокам: анатомия, морфология, гомеостаз, иннервация, энергоресурс, функция. Целостная картина, а не набор симптомов</div>
-          </li>
-          <li class="pricing__feature">
-            <div class="pricing__feature-dot"></div>
-            <div class="pricing__feature-text"><strong style="color:var(--sand);">Персональный план восстановления</strong> — режим и среда, питание, вода, сон, физические нагрузки, профилактика и контроль</div>
-          </li>
-        </ul>
-        <button class="pricing__btn" onclick="openBooking('300')">
-          Выбрать время и записаться
-        </button>
+      <div class="pricing__how-step">
+        <div class="pricing__how-num">02</div>
+        <div class="pricing__how-title">Врач изучит случай</div>
+        <div class="pricing__how-text">Специалист Центра разберёт вашу ситуацию и определит, применим ли метод</div>
       </div>
+      <div class="pricing__how-step">
+        <div class="pricing__how-num">03</div>
+        <div class="pricing__how-title">С вами свяжутся</div>
+        <div class="pricing__how-text">По удобному для вас каналу — расскажут о программе и ответят на вопросы</div>
+      </div>
+    </div>
 
+    <div style="text-align:center;margin-top:56px;" class="reveal">
+      <button class="cta__btn" style="background:var(--gold);color:var(--charcoal);" onclick="openBooking()">Оставить заявку</button>
+    </div>
+
+    <div class="trust-bar reveal">
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+        <div class="trust-item__text"><strong>Случай изучает профессор</strong>Не ассистент и не колл-центр — врач с 50-летней практикой</div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div class="trust-item__text"><strong>Никаких обязательств</strong>Заявка ни к чему не обязывает. Вы просто узнаёте, можем ли мы помочь</div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div class="trust-item__text"><strong>Связь как вам удобно</strong>WhatsApp, Telegram, email, Viber или звонок — на ваш выбор</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1004,12 +1031,12 @@ a { color:inherit; text-decoration:none; }
     <div class="reveal">
       <div class="eyebrow">Первый шаг</div>
       <div class="gold-rule gold-rule--c"></div>
-      <h2 class="h2" style="color:var(--white);">Запишитесь на консультацию</h2>
+      <h2 class="h2" style="color:var(--white);">Оставьте заявку</h2>
       <div class="gold-rule gold-rule--c"></div>
       <p class="cta__body">
-        Врач Центра изучит вашу ситуацию и скажет прямо — подходит ли метод в вашем случае. Оплатите консультацию, и Центр свяжется с вами по указанным контактам, чтобы согласовать удобное время.
+        Врач Центра изучит вашу ситуацию и скажет прямо — подходит ли метод в вашем случае. Оставьте заявку, и Центр свяжется с вами по удобному каналу.
       </p>
-      <button class="cta__btn" onclick="openBooking('150')">
+      <button class="cta__btn" onclick="openBooking()">
         Записаться на консультацию
       </button>
     </div>
@@ -1021,7 +1048,7 @@ a { color:inherit; text-decoration:none; }
   <div class="wrap">
     <div class="booking-bar__inner">
       <div class="booking-bar__text">Центр Профессора Блюма · Марбелья, Испания</div>
-      <button class="bar-btn" onclick="openBooking('150')">Записаться на консультацию</button>
+      <button class="bar-btn" onclick="openBooking()">Оставить заявку</button>
     </div>
   </div>
 </div>
@@ -1062,29 +1089,129 @@ window.addEventListener('scroll', () => {
   bar.classList.toggle('visible', show && !pricingReached);
 }, {passive:true});
 
-// ── Booking → Stripe ──
-var STRIPE_150 = 'https://book.stripe.com/6oU3cueAhcUG4JDgKz9EI03';
-var STRIPE_300 = 'https://book.stripe.com/cNi14m8bTdYKdg99i79EI04';
-var _selectedTier = '150';
+// ── Quiz / lead form ──
+// ВСТАВЬ СЮДА URL Google Apps Script (см. инструкцию apps-script.js):
+var SHEETS_URL = 'REPLACE_APPS_SCRIPT_URL';
+var THANKYOU_URL = '/thank-you.html';
+var TOTAL_STEPS = 8;
+var quizCur = 1;
+var quizData = { channel:'', travel:'', budget:'' };
 
-function openBooking(tier) {
-  selectTier(tier || '150');
+var PHONE_CODES = [
+  ['+34','ES'],['+7','RU'],['+380','UA'],['+375','BY'],['+49','DE'],['+44','GB'],
+  ['+33','FR'],['+39','IT'],['+34','ES'],['+351','PT'],['+41','CH'],['+43','AT'],
+  ['+31','NL'],['+32','BE'],['+48','PL'],['+420','CZ'],['+972','IL'],['+371','LV'],
+  ['+370','LT'],['+372','EE'],['+995','GE'],['+374','AM'],['+994','AZ'],['+1','US/CA'],
+  ['+357','CY'],['+30','GR'],['+90','TR'],['+971','AE']
+];
+
+function initPhoneCodes() {
+  var sel = document.getElementById('q-phone-code');
+  if(!sel || sel.options.length) return;
+  PHONE_CODES.forEach(function(c, i){
+    var o = document.createElement('option');
+    o.value = c[0]; o.textContent = c[0] + ' ' + c[1];
+    if(i === 0) o.selected = true; // ES default
+    sel.appendChild(o);
+  });
+}
+
+function openBooking() {
+  initPhoneCodes();
   document.getElementById('booking-overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
+  quizGoto(1);
 }
 function closeBooking() {
   document.getElementById('booking-overlay').classList.remove('active');
   document.body.style.overflow = '';
 }
-function selectTier(tier) {
-  _selectedTier = tier;
-  var t1 = document.getElementById('tier-150');
-  var t2 = document.getElementById('tier-300');
-  if(t1) t1.classList.toggle('active', tier === '150');
-  if(t2) t2.classList.toggle('active', tier === '300');
+
+function quizGoto(step) {
+  quizCur = step;
+  document.querySelectorAll('.quiz-step').forEach(function(el){
+    el.classList.toggle('active', +el.dataset.step === step);
+  });
+  document.getElementById('quiz-bar').style.width = ((step-1)/TOTAL_STEPS*100) + '%';
+  document.getElementById('quiz-counter').textContent = 'Вопрос ' + step + ' из ' + TOTAL_STEPS;
 }
-function submitBooking() {
-  window.location.href = (_selectedTier === '300') ? STRIPE_300 : STRIPE_150;
+function quizPrev(step){ quizGoto(step-1); }
+
+function quizPick(card, key) {
+  var parent = card.parentNode;
+  parent.querySelectorAll('.quiz-card').forEach(function(c){ c.classList.remove('selected'); });
+  card.classList.add('selected');
+  quizData[key] = card.dataset.val;
+}
+
+function showErr(step, msg){ document.getElementById('err-'+step).textContent = msg || ''; }
+
+function quizNext(step) {
+  if(!validateStep(step)) return;
+  quizGoto(step+1);
+}
+
+function validateStep(step) {
+  showErr(step, '');
+  if(step === 1){
+    if(!document.getElementById('q-name').value.trim()){ showErr(1,'Пожалуйста, введите имя'); return false; }
+  }
+  if(step === 2){
+    var a = +document.getElementById('q-age').value;
+    if(!a || a < 1 || a > 120){ showErr(2,'Укажите корректный возраст'); return false; }
+  }
+  if(step === 3){
+    if(document.getElementById('q-complaint').value.trim().length < 5){ showErr(3,'Опишите, что вас беспокоит'); return false; }
+  }
+  if(step === 4){
+    var num = document.getElementById('q-phone').value.replace(/[^0-9]/g,'');
+    if(num.length < 6){ showErr(4,'Введите корректный номер телефона'); return false; }
+  }
+  if(step === 5){
+    var em = document.getElementById('q-email').value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ showErr(5,'Введите корректный email'); return false; }
+  }
+  if(step === 6){
+    if(!quizData.channel){ showErr(6,'Выберите канал связи'); return false; }
+  }
+  if(step === 7){
+    if(!quizData.travel){ showErr(7,'Пожалуйста, выберите вариант'); return false; }
+  }
+  if(step === 8){
+    if(!quizData.budget){ showErr(8,'Пожалуйста, подтвердите'); return false; }
+  }
+  return true;
+}
+
+function quizSubmit() {
+  if(!validateStep(8)) return;
+  var btn = document.getElementById('quiz-submit');
+  btn.disabled = true; btn.textContent = 'Отправляем...';
+
+  var payload = {
+    name:       document.getElementById('q-name').value.trim(),
+    age:        document.getElementById('q-age').value.trim(),
+    complaint:  document.getElementById('q-complaint').value.trim(),
+    phone:      document.getElementById('q-phone-code').value + ' ' + document.getElementById('q-phone').value.trim(),
+    email:      document.getElementById('q-email').value.trim(),
+    channel:    quizData.channel,
+    travel:     quizData.travel,
+    budget:     quizData.budget,
+    page:       location.href,
+    time:       new Date().toISOString()
+  };
+
+  fetch(SHEETS_URL, {
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body: JSON.stringify(payload)
+  }).then(function(){
+    window.location.href = THANKYOU_URL;
+  }).catch(function(){
+    // no-cors всегда резолвится; на всякий случай всё равно ведём на thank-you
+    window.location.href = THANKYOU_URL;
+  });
 }
 
 // ── YouTube lazy load ──
@@ -1141,11 +1268,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 <h3>2. Характер оказываемых услуг</h3>
 <p>Центр предоставляет услуги онлайн-консультации по авторской методике Профессора Евгения Блюма (соматодинамика, биомеханическая реабилитация). Консультация носит информационно-рекомендательный характер и не является заменой очного медицинского осмотра, постановки диагноза или назначения лечения.</p>
 <p>Центр не несёт ответственности за решения, принятые Пользователем самостоятельно на основании полученных рекомендаций.</p>
-<h3>3. Запись и оплата</h3>
-<p>Запись на консультацию осуществляется через оплату на сайте. Оплата принимается через платёжную систему <strong>Stripe</strong> (Stripe Payments Europe, Ltd.), которая собирает контактные данные Пользователя при оформлении. Центр не хранит данные банковских карт Пользователя.</p>
-<p>После успешной оплаты Пользователь получает на указанный адрес электронной почты подтверждение оплаты. Центр связывается с Пользователем по указанным контактам для согласования времени проведения консультации.</p>
+<h3>3. Заявка на консультацию</h3>
+<p>Заявка на консультацию оформляется через анкету на сайте. Пользователь добровольно указывает имя, возраст, описание состояния и контактные данные для обратной связи.</p>
+<p>После отправки заявки Центр связывается с Пользователем по выбранному им каналу связи для обсуждения его ситуации и возможной программы восстановления. Заявка не является договором и не влечёт финансовых обязательств.</p>
 <h3>4. Отмена и возврат</h3>
-<p>Пользователь вправе отменить или перенести консультацию не позднее чем за 24 часа до согласованного времени, связавшись с Центром. В случае отмены в указанный срок оплата возвращается в полном объёме.</p>
+<p>Пользователь вправе в любой момент отозвать свою заявку и запросить удаление переданных данных, связавшись с Центром.</p>
 <p>При отмене менее чем за 24 часа или в случае неявки средства не возвращаются.</p>
 <h3>5. Ограничения</h3>
 <p>Услуги Центра не предназначены для лиц, находящихся в состоянии острого медицинского кризиса, а также для лиц моложе 18 лет без согласия родителей или законных представителей. При наличии острого или угрожающего жизни состояния Пользователю следует обратиться в службу экстренной медицинской помощи.</p>
@@ -1169,7 +1296,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 <h3>2. Какие cookies мы используем</h3>
 <p><strong>Необходимые (технические)</strong> — обеспечивают базовые функции сайта. Без них сайт не может работать корректно. Эти cookies не требуют отдельного согласия.</p>
 <p><strong>Аналитические</strong> — собирают обезличенную информацию о посещениях: страницы, источники трафика, время на сайте. Используются сервисы Google Analytics и Cloudflare Analytics. Данные агрегированы и не позволяют идентифицировать конкретного пользователя.</p>
-<p><strong>Функциональные (сторонние)</strong> — устанавливаются сервисом Stripe при оформлении и оплате консультации. Регулируются политикой конфиденциальности Stripe.</p>
+<p><strong>Функциональные</strong> — обеспечивают корректную работу формы заявки на сайте.</p>
 <p><strong>Маркетинговые</strong> — используются для показа релевантной рекламы (Google Ads, Meta). Активируются только при наличии согласия Пользователя.</p>
 <h3>3. Управление cookies</h3>
 <p>Пользователь вправе в любое время изменить настройки cookies через параметры своего браузера или отозвать ранее данное согласие, обратившись по адресу <strong>doctor@clinicblum.com</strong>. Отключение части cookies может повлиять на работу отдельных функций сайта.</p>
@@ -1193,8 +1320,7 @@ CIF: B93067445<br>
 Email: doctor@clinicblum.com</p>
 <h3>2. Какие данные мы собираем</h3>
 <ul>
-<li>Имя, адрес электронной почты и телефон — при оплате через Stripe</li>
-<li>Платёжные данные — обрабатываются исключительно сервисом Stripe; Центр не получает и не хранит данные карты</li>
+<li>Имя, возраст, описание состояния, телефон и email — при заполнении анкеты на сайте</li>
 <li>Информация о здоровье, предоставляемая добровольно в ходе консультации</li>
 <li>Технические данные: IP-адрес, тип браузера, данные о посещении сайта</li>
 </ul>
@@ -1208,7 +1334,7 @@ Email: doctor@clinicblum.com</p>
 <h3>4. Кому мы передаём данные</h3>
 <p>Данные могут передаваться следующим обработчикам данных, действующим в интересах Центра:</p>
 <ul>
-<li><strong>Stripe Payments Europe, Ltd.</strong> (Ирландия) — обработка платежей</li>
+<li><strong>Google LLC</strong> (США) — хранение заявок (Google Sheets). Передача на основании Стандартных договорных условий ЕС</li>
 <li><strong>Cloudflare, Inc.</strong> (США) — хостинг и CDN</li>
 <li><strong>Google LLC</strong> (США) — аналитика (Google Analytics, Google Ads) при наличии согласия</li>
 </ul>
@@ -1235,33 +1361,122 @@ Email: doctor@clinicblum.com</p>
 <div class="booking-overlay" id="booking-overlay" onclick="if(event.target===this)closeBooking()">
   <div class="booking-card">
     <button class="booking-card__close" onclick="closeBooking()">✕</button>
-    <div class="booking-card__title" id="booking-title">Запись на консультацию</div>
-    <div class="booking-card__sub">Центр Профессора Блюма · Марбелья</div>
-    <div class="booking-form-tiers">
-      <div class="booking-tier active" id="tier-150" onclick="selectTier('150')">
-        <div class="booking-tier__price">€150</div>
-        <div class="booking-tier__label">Начальная консультация</div>
-      </div>
-      <div class="booking-tier" id="tier-300" onclick="selectTier('300')">
-        <div class="booking-tier__price">€300</div>
-        <div class="booking-tier__label">Расширенная консультация</div>
-      </div>
-    </div>
-    <div class="booking-steps">
-      <div class="booking-step">
-        <div class="booking-step__num">01</div>
-        <div><div class="booking-step__title">Оплата консультации</div><div class="booking-step__text">Безопасная оплата картой, Apple Pay или Google Pay. При оплате вы указываете имя, email и телефон</div></div>
-      </div>
-      <div class="booking-step">
-        <div class="booking-step__num">02</div>
-        <div><div class="booking-step__title">Центр свяжется с вами</div><div class="booking-step__text">После оплаты врач Центра свяжется с вами по указанным контактам, чтобы согласовать удобное время — Google Meet или звонок на телефон</div></div>
-      </div>
-      <div class="booking-step">
-        <div class="booking-step__num">03</div>
-        <div><div class="booking-step__title">Консультация</div><div class="booking-step__text">Подготовьте имеющиеся анализы и снимки — это поможет врачу разобраться в вашей ситуации быстрее</div></div>
+    <div class="booking-card__title">Заявка на консультацию</div>
+    <div class="booking-card__sub" id="quiz-counter">Центр Профессора Блюма · Марбелья</div>
+
+    <div class="quiz-progress"><div class="quiz-progress__bar" id="quiz-bar"></div></div>
+
+    <!-- Q1 name -->
+    <div class="quiz-step active" data-step="1">
+      <div class="quiz-q">Как вас зовут?</div>
+      <input class="quiz-input" id="q-name" type="text" placeholder="Ваше имя" autocomplete="name">
+      <div class="quiz-err" id="err-1"></div>
+      <div class="quiz-nav">
+        <button class="quiz-next" onclick="quizNext(1)">Далее →</button>
       </div>
     </div>
-    <button class="booking-card__btn" id="booking-btn" onclick="submitBooking()">Перейти к оплате →</button>
+
+    <!-- Q2 age -->
+    <div class="quiz-step" data-step="2">
+      <div class="quiz-q">Сколько вам лет?</div>
+      <input class="quiz-input" id="q-age" type="number" min="1" max="120" placeholder="Возраст" inputmode="numeric">
+      <div class="quiz-err" id="err-2"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" onclick="quizPrev(2)">Назад</button>
+        <button class="quiz-next" onclick="quizNext(2)">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Q3 complaint -->
+    <div class="quiz-step" data-step="3">
+      <div class="quiz-q">Что вас беспокоит?</div>
+      <div class="quiz-hint">Опишите своими словами: какие ощущения, что болит, как давно</div>
+      <textarea class="quiz-input quiz-textarea" id="q-complaint" placeholder="Расскажите о вашей ситуации"></textarea>
+      <div class="quiz-err" id="err-3"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" onclick="quizPrev(3)">Назад</button>
+        <button class="quiz-next" onclick="quizNext(3)">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Q4 phone -->
+    <div class="quiz-step" data-step="4">
+      <div class="quiz-q">Ваш номер телефона</div>
+      <div class="quiz-hint">Выберите код страны и введите номер</div>
+      <div class="quiz-phone-row">
+        <select class="quiz-input quiz-phone-code" id="q-phone-code"></select>
+        <input class="quiz-input" id="q-phone" type="tel" placeholder="Номер телефона" inputmode="tel" style="margin-bottom:0;">
+      </div>
+      <div class="quiz-err" id="err-4"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" onclick="quizPrev(4)">Назад</button>
+        <button class="quiz-next" onclick="quizNext(4)">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Q5 email -->
+    <div class="quiz-step" data-step="5">
+      <div class="quiz-q">Введите адрес электронной почты</div>
+      <input class="quiz-input" id="q-email" type="email" placeholder="email@example.com" autocomplete="email" inputmode="email">
+      <div class="quiz-err" id="err-5"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" onclick="quizPrev(5)">Назад</button>
+        <button class="quiz-next" onclick="quizNext(5)">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Q6 channel -->
+    <div class="quiz-step" data-step="6">
+      <div class="quiz-q">Как с вами связаться?</div>
+      <div class="quiz-hint">Выберите удобный канал связи</div>
+      <div class="quiz-cards" id="q-channel">
+        <div class="quiz-card" data-val="WhatsApp" onclick="quizPick(this,'channel')"><div class="quiz-card__check"></div>WhatsApp</div>
+        <div class="quiz-card" data-val="Telegram" onclick="quizPick(this,'channel')"><div class="quiz-card__check"></div>Telegram</div>
+        <div class="quiz-card" data-val="Email" onclick="quizPick(this,'channel')"><div class="quiz-card__check"></div>Email</div>
+        <div class="quiz-card" data-val="Звонок" onclick="quizPick(this,'channel')"><div class="quiz-card__check"></div>Телефонный звонок</div>
+        <div class="quiz-card" data-val="Viber" onclick="quizPick(this,'channel')"><div class="quiz-card__check"></div>Viber</div>
+      </div>
+      <div class="quiz-err" id="err-6"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" onclick="quizPrev(6)">Назад</button>
+        <button class="quiz-next" onclick="quizNext(6)">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Q7 travel -->
+    <div class="quiz-step" data-step="7">
+      <div class="quiz-q">Клиника находится в Испании</div>
+      <div class="quiz-hint">Готовы ли вы приехать, чтобы пройти лечение?</div>
+      <div class="quiz-cards" id="q-travel">
+        <div class="quiz-card" data-val="Да" onclick="quizPick(this,'travel')"><div class="quiz-card__check"></div>Да, готов(а) приехать</div>
+        <div class="quiz-card" data-val="Нет" onclick="quizPick(this,'travel')"><div class="quiz-card__check"></div>Нет</div>
+      </div>
+      <div class="quiz-err" id="err-7"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" onclick="quizPrev(7)">Назад</button>
+        <button class="quiz-next" onclick="quizNext(7)">Далее →</button>
+      </div>
+    </div>
+
+    <!-- Q8 budget -->
+    <div class="quiz-step" data-step="8">
+      <div class="quiz-q">Стоимость программы</div>
+      <div class="quiz-price-box">
+        <p>Для каждого пациента мы разрабатываем <strong>индивидуальную программу восстановления</strong>, основанную на особенностях случая и состоянии человека — чтобы действительно помочь именно вам. Стоимость программы на 10 дней — <strong>от 3&nbsp;300 €</strong>.</p>
+      </div>
+      <div class="quiz-hint">Пожалуйста, подтвердите, что минимальная стоимость вам подходит.</div>
+      <div class="quiz-cards" id="q-budget">
+        <div class="quiz-card" data-val="Да" onclick="quizPick(this,'budget')"><div class="quiz-card__check"></div>Да, мне подходит</div>
+        <div class="quiz-card" data-val="Нет" onclick="quizPick(this,'budget')"><div class="quiz-card__check"></div>Нет</div>
+      </div>
+      <div class="quiz-err" id="err-8"></div>
+      <div class="quiz-nav">
+        <button class="quiz-back" onclick="quizPrev(8)">Назад</button>
+        <button class="quiz-next" id="quiz-submit" onclick="quizSubmit()">Отправить заявку →</button>
+      </div>
+      <div class="quiz-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" onclick="closeBooking();openModal('modal-personal');return false;">политикой обработки персональных данных</a>.</div>
+    </div>
+
   </div>
 </div>
 </body>
