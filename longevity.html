@@ -71,7 +71,17 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 .peer .who{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin-bottom:4px}
 .peer .role{font-size:.8rem;letter-spacing:.04em;color:var(--clay);text-transform:uppercase;font-weight:700;margin-bottom:18px}
 .peer p{color:var(--graphite);font-size:.97rem}
-.peer .vlink{margin-top:18px;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);display:inline-flex;gap:8px}
+.peer .vlink{margin-top:18px;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);display:inline-flex;gap:8px;background:none;border:none;padding:0;cursor:pointer;font-family:var(--sans)}
+.peer .vlink:hover{color:var(--acc-deep)}
+.video-overlay{position:fixed;inset:0;z-index:120;background:rgba(20,18,12,.88);display:none;align-items:center;justify-content:center;padding:20px}
+.video-overlay.active{display:flex}
+.video-modal{position:relative;width:100%;max-width:880px}
+.video-frame-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden}
+.video-frame-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;text-align:center;padding:24px}
+.video-fallback p{font-size:.92rem;color:#cfcfcf;max-width:32ch;margin:0}
+.video-close{position:absolute;top:-44px;right:0;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.4);color:#fff;font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.video-close:hover{border-color:#fff}
 @media(max-width:720px){.peers{grid-template-columns:1fr}}
 .recharge{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px}
 .rch{padding-top:26px;border-top:2px solid var(--acc)}
@@ -189,10 +199,10 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">К нам приходят</div><h2 class="h1">Те, для кого простой в делах стоит дороже, чем программа</h2></div>
     <div class="peers reveal">
-      <div class="peer"><div class="who">Алексей, 50</div><div class="role">Предприниматель</div><p>«Как зарядить батарейки?» Бизнес требует постоянного фокуса, контроля и концентрации — задача была оптимизировать энергоресурс, а не просто отдохнуть.</p><a class="vlink" href="#" target="_blank" rel="noopener">Смотреть видео →</a></div>
-      <div class="peer"><div class="who">Юрий, 28</div><div class="role">Биржевой брокер</div><p>Хронические болезни на фоне эмоционального выгорания. Метод профессора Блюма восстановил эмоциональные и физические силы за 12 дней — без медикаментов.</p><a class="vlink" href="#" target="_blank" rel="noopener">Смотреть видео →</a></div>
-      <div class="peer"><div class="who">Пётр Осипов</div><div class="role">Предприниматель</div><p>Сооснователь крупного образовательного проекта. Восстановление ресурса для работы в высоком темпе и публичных нагрузок.</p><a class="vlink" href="#" target="_blank" rel="noopener">Смотреть видео →</a></div>
-      <div class="peer"><div class="who">Владимир, 52</div><div class="role">Бывший спортсмен</div><p>Знакомая многим история: ресурс вычерпан до дна в погоне за результатом. Программа вернула телу силы и работоспособность.</p><a class="vlink" href="#" target="_blank" rel="noopener">Смотреть видео →</a></div>
+      <div class="peer"><div class="who">Алексей, 50</div><div class="role">Предприниматель</div><p>«Как зарядить батарейки?» Бизнес требует постоянного фокуса, контроля и концентрации — задача была оптимизировать энергоресурс, а не просто отдохнуть.</p><button class="vlink" onclick="openVideo('REPLACE_ALEKSEY')">Смотреть видео →</button></div>
+      <div class="peer"><div class="who">Юрий, 28</div><div class="role">Биржевой брокер</div><p>Хронические болезни на фоне эмоционального выгорания. Метод профессора Блюма восстановил эмоциональные и физические силы за 12 дней — без медикаментов.</p><button class="vlink" onclick="openVideo('REPLACE_YURIY')">Смотреть видео →</button></div>
+      <div class="peer"><div class="who">Пётр Осипов</div><div class="role">Предприниматель</div><p>Сооснователь крупного образовательного проекта. Восстановление ресурса для работы в высоком темпе и публичных нагрузок.</p><button class="vlink" onclick="openVideo('REPLACE_OSIPOV')">Смотреть видео →</button></div>
+      <div class="peer"><div class="who">Владимир, 52</div><div class="role">Бывший спортсмен</div><p>Знакомая многим история: ресурс вычерпан до дна в погоне за результатом. Программа вернула телу силы и работоспособность.</p><button class="vlink" onclick="openVideo('REPLACE_VLADIMIR')">Смотреть видео →</button></div>
     </div>
   </div>
 </section>
@@ -343,7 +353,7 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
       <div class="quiz-step" data-step="8">
         <div class="quiz-count">Шаг 8 из 8</div>
         <div class="quiz-q">Подтверждение бюджета</div>
-        <div class="quiz-price"><p>Индивидуальная программа восстановления на 10 дней — <strong>от 3&nbsp;300&nbsp;€</strong>. Точная стоимость зависит от состояния и задач.</p></div>
+        <div class="quiz-price"><p>Индивидуальная программа восстановления на 10 дней — <strong>от 4&nbsp;000&nbsp;€</strong>. Точная стоимость зависит от состояния и задач.</p></div>
         <div class="quiz-hint">Подтвердите, что минимальная стоимость для вас приемлема.</div>
         <div class="quiz-cards" id="q-budget">
           <div class="quiz-card" data-val="Да" onclick="quizPick(this,'budget')"><span class="quiz-card__check"></span>Да, мне подходит</div>
@@ -364,7 +374,7 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
     <p>Настоящий сайт носит информационный характер. Размещённые материалы не являются публичной офертой и не могут рассматриваться как медицинская рекомендация или гарантия результата.</p>
     <p>Оператор: BLUM CENTRE SL, CIF B93067445, Marbella, España. Услуги оказываются на основании индивидуального договора, заключаемого после диагностики.</p>
     <h3>Стоимость</h3>
-    <p>Ориентировочная стоимость индивидуальной программы восстановления — от 3&nbsp;300&nbsp;€. Точная стоимость определяется индивидуально по результатам диагностики.</p>
+    <p>Ориентировочная стоимость индивидуальной программы восстановления — от 4&nbsp;000&nbsp;€. Точная стоимость определяется индивидуально по результатам диагностики.</p>
   </div>
 </div>
 <div class="legal-overlay" id="legal-personal" onclick="if(event.target===this)closeLegal('legal-personal')">
@@ -425,8 +435,40 @@ function closeLegal(id){document.getElementById(id).classList.remove('active');d
 function acceptCookie(){document.getElementById('cookie-banner').classList.remove('show');try{localStorage.setItem('blum_cookie','1');}catch(e){}}
 (function(){try{if(!localStorage.getItem('blum_cookie')){setTimeout(function(){document.getElementById('cookie-banner').classList.add('show');},1200);}}catch(e){document.getElementById('cookie-banner').classList.add('show');}})();
 (function(){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});})();
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeQuiz();['legal-offer','legal-personal','legal-cookie'].forEach(closeLegal);}});
+function openVideo(id){
+  var overlay=document.getElementById('video-overlay');
+  var frame=document.getElementById('video-frame');
+  var fallback=document.getElementById('video-fallback');
+  if(!id||id.indexOf('REPLACE_')===0){
+    frame.style.display='none';frame.src='';
+    fallback.style.display='flex';
+  }else{
+    fallback.style.display='none';
+    frame.style.display='block';
+    frame.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1';
+  }
+  overlay.classList.add('active');document.body.style.overflow='hidden';
+}
+function closeVideo(){
+  var overlay=document.getElementById('video-overlay');
+  var frame=document.getElementById('video-frame');
+  overlay.classList.remove('active');frame.src='';document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeQuiz();closeVideo();['legal-offer','legal-personal','legal-cookie'].forEach(closeLegal);}});
 </script>
+
+<div class="video-overlay" id="video-overlay" onclick="if(event.target===this)closeVideo()">
+  <div class="video-modal">
+    <button class="video-close" onclick="closeVideo()" aria-label="Закрыть">&#10005;</button>
+    <div class="video-frame-wrap">
+      <iframe id="video-frame" style="display:none" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Видео-отзыв пациента"></iframe>
+      <div class="video-fallback" id="video-fallback" style="display:none">
+        <svg viewBox="0 0 24 24" width="40" height="40" style="opacity:.6"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <p>Видео скоро появится здесь.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
