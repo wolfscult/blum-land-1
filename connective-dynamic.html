@@ -705,7 +705,7 @@ function validateStep(s){showErr(s,'');
  if(s===8){if(!quizData.budget){showErr(8,'Пожалуйста, подтвердите');return false;}}
  return true;}
 function quizSubmit(){if(!validateStep(8))return;var btn=document.getElementById('quiz-submit');btn.disabled=true;btn.textContent='Отправляем…';
- var payload={name:document.getElementById('q-name').value.trim(),age:document.getElementById('q-age').value.trim(),complaint:document.getElementById('q-complaint').value.trim(),phone:document.getElementById('q-phone-code').value+' '+document.getElementById('q-phone').value.trim(),email:document.getElementById('q-email').value.trim(),channel:quizData.channel,travel:quizData.travel,budget:quizData.budget,page:location.href,time:new Date().toISOString()};
+ var payload={source:'connective-dynamic',name:document.getElementById('q-name').value.trim(),age:document.getElementById('q-age').value.trim(),complaint:document.getElementById('q-complaint').value.trim(),phone:document.getElementById('q-phone-code').value+' '+document.getElementById('q-phone').value.trim(),email:document.getElementById('q-email').value.trim(),channel:quizData.channel,travel:quizData.travel,budget:quizData.budget,page:location.href,time:new Date().toISOString()};
  /* сырой ключ из Google Ads + определённый кластер + utm/gclid — уезжают в Google Sheets */
  try{var T=window.__BLUM_TRACK||{};for(var tk in T){if(Object.prototype.hasOwnProperty.call(T,tk)&&T[tk])payload[tk]=T[tk];}}catch(e){}
  if(window.fbq){fbq('track','CompleteRegistration',{content_name:'quiz_submit',content_category:window.__BLUM_CLUSTER||'default'});}

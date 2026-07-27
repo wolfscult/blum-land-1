@@ -1104,7 +1104,7 @@ window.addEventListener('scroll', () => {
 
 // ── Quiz / lead form ──
 // ВСТАВЬ СЮДА URL Google Apps Script (см. инструкцию apps-script.js):
-var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbw_4Iq37MAe1_FoaiSegnlz1MvgKo6K93VhorG03UkhGs95iVeCL5gnDMrwEABphlm7nQ/exec';
+var LEAD_URL = 'https://leads.profblum.org/lead';
 var THANKYOU_URL = '/thank-you.html';
 var TOTAL_STEPS = 8;
 var quizCur = 1;
@@ -1217,6 +1217,7 @@ function quizSubmit() {
   btn.disabled = true; btn.textContent = 'Отправляем...';
 
   var payload = {
+    source:     'main',
     name:       document.getElementById('q-name').value.trim(),
     age:        document.getElementById('q-age').value.trim(),
     complaint:  document.getElementById('q-complaint').value.trim(),
@@ -1229,15 +1230,14 @@ function quizSubmit() {
     time:       new Date().toISOString()
   };
 
-  fetch(SHEETS_URL, {
+  fetch(LEAD_URL, {
     method:'POST',
-    mode:'no-cors',
-    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    headers:{'Content-Type':'application/json'},
     body: JSON.stringify(payload)
-  }).then(function(){
+  }).then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
     window.location.href = THANKYOU_URL;
   }).catch(function(){
-    // no-cors всегда резолвится; на всякий случай всё равно ведём на thank-you
     window.location.href = THANKYOU_URL;
   });
 }

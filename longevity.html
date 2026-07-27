@@ -410,7 +410,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <button onclick="acceptCookie()">Принять</button>
 </div>
 <script>
-var SHEETS_URL='https://script.google.com/macros/s/AKfycbw_4Iq37MAe1_FoaiSegnlz1MvgKo6K93VhorG03UkhGs95iVeCL5gnDMrwEABphlm7nQ/exec';
+var LEAD_URL='https://leads.profblum.org/lead';
 var THANKYOU_URL='/longevity-thank-you';
 var PHONE_CODES=[{c:'+34',n:'ES'},{c:'+7',n:'RU/KZ'},{c:'+380',n:'UA'},{c:'+375',n:'BY'},{c:'+44',n:'GB'},{c:'+49',n:'DE'},{c:'+33',n:'FR'},{c:'+39',n:'IT'},{c:'+351',n:'PT'},{c:'+41',n:'CH'},{c:'+43',n:'AT'},{c:'+31',n:'NL'},{c:'+32',n:'BE'},{c:'+48',n:'PL'},{c:'+420',n:'CZ'},{c:'+371',n:'LV'},{c:'+370',n:'LT'},{c:'+372',n:'EE'},{c:'+972',n:'IL'},{c:'+971',n:'AE'},{c:'+1',n:'US/CA'},{c:'+90',n:'TR'},{c:'+357',n:'CY'},{c:'+995',n:'GE'}];
 (function(){var sel=document.getElementById('q-phone-code');PHONE_CODES.forEach(function(p){var o=document.createElement('option');o.value=p.c;o.textContent=p.c+' '+p.n;sel.appendChild(o);});sel.value='+34';fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(d){if(d&&d.country_calling_code){for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===d.country_calling_code){sel.value=d.country_calling_code;break;}}}}).catch(function(){});})();
@@ -433,9 +433,9 @@ function validateStep(s){showErr(s,'');
  if(s===8){if(!quizData.budget){showErr(8,'Пожалуйста, подтвердите');return false;}}
  return true;}
 function quizSubmit(){if(!validateStep(8))return;var btn=document.getElementById('quiz-submit');btn.disabled=true;btn.textContent='Отправляем…';
- var payload={name:document.getElementById('q-name').value.trim(),age:document.getElementById('q-age').value.trim(),complaint:document.getElementById('q-complaint').value.trim(),phone:document.getElementById('q-phone-code').value+' '+document.getElementById('q-phone').value.trim(),email:document.getElementById('q-email').value.trim(),channel:quizData.channel,travel:quizData.travel,budget:quizData.budget,page:location.href,time:new Date().toISOString()};
+ var payload={source:'longevity',name:document.getElementById('q-name').value.trim(),age:document.getElementById('q-age').value.trim(),complaint:document.getElementById('q-complaint').value.trim(),phone:document.getElementById('q-phone-code').value+' '+document.getElementById('q-phone').value.trim(),email:document.getElementById('q-email').value.trim(),channel:quizData.channel,travel:quizData.travel,budget:quizData.budget,page:location.href,time:new Date().toISOString()};
  if(window.fbq){fbq('track','CompleteRegistration',{content_name:'quiz_submit'});}
- fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)}).then(function(){window.location.href=THANKYOU_URL;}).catch(function(){window.location.href=THANKYOU_URL;});}
+ fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);window.location.href=THANKYOU_URL;}).catch(function(){window.location.href=THANKYOU_URL;});}
 function openLegal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden';}
 function closeLegal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow='';}
 function acceptCookie(){document.getElementById('cookie-banner').classList.remove('show');try{localStorage.setItem('blum_cookie','1');}catch(e){}}
