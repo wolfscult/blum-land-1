@@ -328,7 +328,7 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
     <div class="contact-price"><span>Стоимость программы</span><strong>от 4 000 €</strong></div>
     <fieldset><legend>Готовы рассматривать такую стоимость?</legend><div class="contact-options"><label class="contact-option"><input type="radio" name="budget" value="Да" required><span>Да, мне подходит</span></label><label class="contact-option"><input type="radio" name="budget" value="Нет" required><span>Нет</span></label></div></fieldset>
    </div>
-   <label class="contact-consent"><input name="consent" type="checkbox" required><span>Я согласен(на) на обработку персональных данных. <a href="#" onclick="openLegal('legal-personal');return false">Политика обработки данных</a></span></label>
+   <label class="contact-consent"><input name="consent" type="checkbox" required><span>Я согласен(на) на обработку персональных данных. <a href="#" onclick="closeBooking();openLegal('legal-personal');return false">Политика обработки данных</a></span></label>
    <div class="contact-submit-row"><button class="contact-submit" type="submit"><span>Отправить заявку</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><p>Сотрудник клиники свяжется с вами<br>по выбранному каналу.</p></div>
    <p id="form-status" class="contact-status" role="status" aria-live="polite"></p>
   </form>
