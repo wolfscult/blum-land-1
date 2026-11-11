@@ -1,0 +1,8 @@
+.assetsignore
+wrangler.toml
+site-worker.js
+functions/
+*.md
+*.mjs
+*.csv
+.git/
