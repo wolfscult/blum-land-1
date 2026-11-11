@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /it
+Disallow: /longevity
+Disallow: /connective-dynamic
+Disallow: /thank-you
+Disallow: /connective-thank-you
+Sitemap: https://profblum.org/sitemap.xml
