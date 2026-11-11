@@ -1,0 +1,39 @@
+.contact-overlay{position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;padding:24px;background:rgba(27,23,21,.55);backdrop-filter:blur(5px)}
+.contact-panel{position:relative;width:760px;max-width:100%;max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;background:#fcfaf6;border:1px solid #e6ded5;border-radius:16px;padding:30px 36px 22px;box-shadow:0 28px 90px #0003;color:#292523;font:14px/1.45 Arial,sans-serif;scrollbar-width:thin;scrollbar-color:#d6ccc2 transparent}
+.contact-panel *{box-sizing:border-box}
+.contact-close{position:absolute;top:20px;right:20px;width:34px;height:34px;border:1px solid #e3ddd5;border-radius:50%;display:grid;place-items:center;background:transparent;color:#6e635d;cursor:pointer;transition:background .15s}
+.contact-close:hover{background:#eee7df}.contact-close svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.5}
+.contact-header{margin:0 0 24px;padding:0 30px 0 0}
+.contact-header .contact-eyebrow{font:10px/1.4 Arial,sans-serif;letter-spacing:2px;color:#8a4a51;margin:0 0 10px}
+.contact-header h2{font:normal 38px/1.12 Georgia,serif;letter-spacing:-1px;margin:0 0 10px;color:#302725}
+.contact-header .contact-intro{font:14px/1.5 Arial,sans-serif;color:#80736b;margin:0;max-width:none}
+.blum-contact .contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:20px;row-gap:18px}
+.blum-contact .contact-field{display:block;min-width:0;margin:0;padding:0;border:0}
+.blum-contact .contact-field>span,.blum-contact legend{display:block;float:none;width:auto;padding:0;margin:0 0 8px;font:13px/1.4 Arial,sans-serif;color:#544b46;font-weight:500;letter-spacing:0;text-transform:none}
+.blum-contact input:not([type=radio]):not([type=checkbox]),.blum-contact select{width:100%;height:46px;border:1px solid #dcd4ca;border-radius:7px;background:#fffefa;padding:0 13px;margin:0;color:#332e2a;font:14px/1.3 Arial,sans-serif;outline:none;transition:border-color .15s,box-shadow .15s;min-width:0}
+.blum-contact select{padding-right:28px;font-size:13px}
+.blum-contact input::placeholder{color:#aaa096;opacity:1}
+.blum-contact input:focus-visible,.blum-contact select:focus-visible{border-color:#82404a;box-shadow:0 0 0 3px #82404a12}
+.contact-options{display:flex;gap:6px;min-width:0}
+.contact-option{display:block;position:relative;flex:1;min-width:0;cursor:pointer}
+.contact-option input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.contact-option span{display:flex;align-items:center;justify-content:center;min-height:43px;padding:9px 6px;border:1px solid #ddd5cb;border-radius:7px;background:#fffefa;font:12px/1.2 Arial,sans-serif;color:#766b63;text-align:center;transition:background .15s,border-color .15s}
+.contact-option:hover span{border-color:#b9a69a}
+.contact-option input:checked+span{border-color:#82404a;background:#f2e8e6;color:#752f3b}
+.contact-option input:focus-visible+span{outline:2px solid #82404a;outline-offset:2px}
+.contact-budget{display:grid;grid-template-columns:1fr 1.6fr;gap:22px;align-items:center;border-top:1px solid #e6ddd3;border-bottom:1px solid #e6ddd3;padding:19px 0;margin:22px 0 17px}
+.contact-price>span{display:block;font:12px/1.4 Arial,sans-serif;color:#8c7e74;margin-bottom:5px}
+.contact-price strong{display:block;font:normal 29px/1.15 Georgia,serif;color:#74343e;letter-spacing:-.4px}
+.contact-budget fieldset{border:0;padding:0;margin:0;min-width:0}
+.contact-budget legend{font-size:12px;margin-bottom:7px}
+.contact-budget .contact-option:first-child{flex:1.6}
+.contact-consent{display:flex;align-items:flex-start;gap:10px;margin:0 0 19px;font:11px/1.55 Arial,sans-serif;color:#91847a;cursor:pointer}
+.contact-consent input{flex:0 0 16px;width:16px;height:16px;margin:1px 0 0;accent-color:#7b3541;cursor:pointer}
+.contact-consent a{color:#7a6b62;text-decoration:underline;text-underline-offset:2px}
+.contact-submit-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.contact-submit{height:48px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;border:0;border-radius:7px;background:#7a3440;color:#fff9f3;padding:0 18px;cursor:pointer;font:13px/1 Arial,sans-serif;letter-spacing:.2px;transition:background .15s}
+.contact-submit:hover{background:#612732}.contact-submit:disabled{opacity:.55;cursor:wait}.contact-submit svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.4}
+.contact-submit-row p{font:11px/1.55 Arial,sans-serif;color:#9b8f85;margin:0;max-width:none}
+.contact-status{font:12px/1.5 Arial,sans-serif;color:#7a3440;margin:10px 0 0;min-height:0}.contact-status:empty{display:none}
+@media(max-width:600px){.contact-overlay{padding:12px}.contact-panel{max-height:calc(100svh - 24px);padding:27px 22px 22px;border-radius:12px}.contact-header{margin-bottom:23px}.contact-header h2{font-size:32px}.contact-header .contact-intro{font-size:13px}.blum-contact .contact-grid{grid-template-columns:1fr;row-gap:16px}.contact-budget{grid-template-columns:1fr;gap:15px;margin-top:20px}.contact-price{display:flex;align-items:baseline;justify-content:space-between;gap:10px}.contact-price strong{font-size:27px}.contact-submit-row{grid-template-columns:1fr;gap:12px}.contact-submit-row p{text-align:center}.contact-consent{font-size:11px}.contact-close{top:16px;right:16px}}
+@media(prefers-reduced-motion:reduce){.contact-panel *{transition:none!important}}

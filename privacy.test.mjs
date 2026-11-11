@@ -36,4 +36,4 @@ test('consent copy is short and the floating settings button is absent',()=>{
  assert.ok(privacy.includes('background:#fff'));
 });
 
-test('both forms require a budget response and show the minimum price',()=>{for(const name of ['index.html','connective.html']){const html=read(name);assert.ok(html.includes('Стоимость программы — от 4 000 €'));assert.ok(/name="budget" required/.test(html));}assert.ok(read('./contact.js').includes("budget:values.get('budget')"));});
+test('both forms require a budget response and show the minimum price',()=>{for(const name of ['index.html','connective.html']){const html=read(name);assert.ok(html.includes('Стоимость программы') && html.includes('от 4 000 €'));assert.ok(/name="budget"[^>]*required/.test(html));}assert.ok(read('./contact.js').includes("budget:values.get('budget')"));});

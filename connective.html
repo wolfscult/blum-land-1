@@ -163,6 +163,7 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 :focus-visible{outline:2px solid var(--ox);outline-offset:3px}
 </style>
+<link rel="stylesheet" href="/contact.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -310,22 +311,28 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 </div></footer>
 
 <!-- ============ QUIZ ============ -->
-<div class="quiz-overlay" id="quiz-overlay" role="dialog" aria-modal="true" aria-label="Заявка" style="display:none">
- <div style="font-family:Arial,sans-serif;background:#FBF8F2;padding:30px;max-width:540px;width:100%;max-height:92vh;overflow:auto;position:relative">
- <button type="button" onclick="closeBooking()" aria-label="Закрыть" style="float:right">✕</button>
- <h2>Оставить заявку</h2><p>Оставьте контакты, и сотрудник клиники свяжется с вами.</p>
- <form id="contact-form" data-source="connective">
- <label>Имя<input class="quiz-input" name="name" maxlength="100" autocomplete="given-name" required></label>
- <label>Телефон с кодом страны<input class="quiz-input" name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="+34 …" required></label>
- <label>Email<input class="quiz-input" name="email" type="email" autocomplete="email" maxlength="254" required></label>
- <label>Меня интересует<select class="quiz-input" name="program" required><option value="">Выберите программу</option><option value="Восстановительная программа на 10 дней">Восстановительная программа на 10 дней</option><option value="Интенсивная программа на 14 дней">Интенсивная программа на 14 дней</option><option value="Восстановительная программа на 21 день">Восстановительная программа на 21 день</option><option value="Интенсивная программа на 21 день">Интенсивная программа на 21 день</option></select></label>
- <label>Возможность приезда в Испанию<select class="quiz-input" name="travel" required><option value="">Выберите вариант</option><option>Да</option><option>Рассматриваю</option><option>Нужны детали</option></select></label>
- <label>Как с вами связаться?<select class="quiz-input" name="channel" required><option>WhatsApp</option><option>Email</option><option>Звонок</option></select></label>
- <div style="margin:16px 0;padding:14px 16px;background:#f2ece4;border-left:2px solid #7a2e39"><strong>Стоимость программы — от 4 000 €</strong></div>
- <label>Готовы ли вы рассматривать программу по этой стоимости?<select class="quiz-input" name="budget" required><option value="">Выберите вариант</option><option value="Да">Да, мне подходит</option><option value="Нет">Нет</option></select></label>
- <label style="display:block;margin:15px 0"><input name="consent" type="checkbox" required> Я согласен(на) на обработку персональных данных. <a href="#" onclick="openLegal('legal-personal');return false">Политика обработки данных</a></label>
- <button class="quiz-next" type="submit">Отправить заявку</button><p id="form-status" role="status" aria-live="polite"></p>
- </form></div></div>
+<div class="quiz-overlay contact-overlay" id="quiz-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-title" aria-label="Заявка" style="display:none">
+ <section class="contact-panel">
+  <button class="contact-close" type="button" onclick="closeBooking()" aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+  <header class="contact-header"><p class="contact-eyebrow">ЦЕНТР ПРОФЕССОРА БЛЮМА</p><h2 id="contact-title">Оставить заявку</h2><p class="contact-intro">Выберите программу. Мы свяжемся с вами и обсудим детали.</p></header>
+  <form id="contact-form" class="blum-contact" data-source="connective">
+   <div class="contact-grid">
+    <label class="contact-field"><span>Ваше имя</span><input name="name" maxlength="100" autocomplete="given-name" placeholder="Как к вам обращаться" required></label>
+    <label class="contact-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="254" placeholder="name@example.com" required></label>
+    <label class="contact-field"><span>Телефон с кодом страны</span><input name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="+34 600 000 000" required></label>
+    <label class="contact-field"><span>Меня интересует</span><select name="program" required><option value="">Выберите программу</option><option value="Восстановительная программа на 10 дней">Восстановительная программа на 10 дней</option><option value="Интенсивная программа на 14 дней">Интенсивная программа на 14 дней</option><option value="Восстановительная программа на 21 день">Восстановительная программа на 21 день</option><option value="Интенсивная программа на 21 день">Интенсивная программа на 21 день</option></select></label>
+    <fieldset class="contact-field"><legend>Возможность приезда в Испанию</legend><div class="contact-options"><label class="contact-option"><input type="radio" name="travel" value="Да" required><span>Да</span></label><label class="contact-option"><input type="radio" name="travel" value="Рассматриваю" required><span>Рассматриваю</span></label><label class="contact-option"><input type="radio" name="travel" value="Нужны детали" required><span>Нужны детали</span></label></div></fieldset>
+    <fieldset class="contact-field"><legend>Как с вами связаться?</legend><div class="contact-options"><label class="contact-option"><input type="radio" name="channel" value="WhatsApp" required checked><span>WhatsApp</span></label><label class="contact-option"><input type="radio" name="channel" value="Email" required><span>Email</span></label><label class="contact-option"><input type="radio" name="channel" value="Звонок" required><span>Звонок</span></label></div></fieldset>
+   </div>
+   <div class="contact-budget">
+    <div class="contact-price"><span>Стоимость программы</span><strong>от 4 000 €</strong></div>
+    <fieldset><legend>Готовы рассматривать такую стоимость?</legend><div class="contact-options"><label class="contact-option"><input type="radio" name="budget" value="Да" required><span>Да, мне подходит</span></label><label class="contact-option"><input type="radio" name="budget" value="Нет" required><span>Нет</span></label></div></fieldset>
+   </div>
+   <label class="contact-consent"><input name="consent" type="checkbox" required><span>Я согласен(на) на обработку персональных данных. <a href="#" onclick="openLegal('legal-personal');return false">Политика обработки данных</a></span></label>
+   <div class="contact-submit-row"><button class="contact-submit" type="submit"><span>Отправить заявку</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button><p>Сотрудник клиники свяжется с вами<br>по выбранному каналу.</p></div>
+   <p id="form-status" class="contact-status" role="status" aria-live="polite"></p>
+  </form>
+ </section></div>
 <!-- ============ LEGAL MODALS ============ -->
 <div class="legal-overlay" id="legal-offer" onclick="if(event.target===this)closeLegal('legal-offer')">
   <div class="legal-modal"><button class="legal-close" onclick="closeLegal('legal-offer')">&#10005;</button>
