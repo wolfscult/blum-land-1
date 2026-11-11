@@ -21,7 +21,7 @@ test('disabled routes return 410 including html aliases and thank-you pages',asy
 test('successful main/connective submissions navigate to their thank-you pages; failures stay on form',async()=>{
  for(const source of ['main','connective'])for(const success of [true,false]){
   let submit;const redirects=[],button={disabled:false},status={textContent:''};
-  const values={name:'Test',phone:'+34600000000',email:'test@example.com',program:'Восстановительная программа на 10 дней',travel:'Да',channel:'Email'};
+  const values={name:'Test',phone:'+34600000000',email:'test@example.com',program:'Восстановительная программа на 10 дней',travel:'Да',channel:'Email',budget:'Да'};
   const form={dataset:{source},reportValidity:()=>true,querySelector:()=>button,addEventListener(event,cb){submit=cb}};
   const document={addEventListener(){},getElementById(id){return id==='contact-form'?form:status}};
   const context={document,FormData:class{get(key){return values[key]}},location:{origin:'https://profblum.org',pathname:source==='main'?'/':'/connective'},window:{location:{assign(url){redirects.push(url)}}},fetch:async()=>({ok:success,json:async()=>({ok:success})})};
@@ -35,3 +35,5 @@ test('consent copy is short and the floating settings button is absent',()=>{
  assert.ok(!privacy.includes("settings=document.createElement('button')"));
  assert.ok(privacy.includes('background:#fff'));
 });
+
+test('both forms require a budget response and show the minimum price',()=>{for(const name of ['index.html','connective.html']){const html=read(name);assert.ok(html.includes('Стоимость программы — от 4 000 €'));assert.ok(/name="budget" required/.test(html));}assert.ok(read('./contact.js').includes("budget:values.get('budget')"));});
