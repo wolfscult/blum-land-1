@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"BLpboNrGGjpS9AYDRBWTpX",debug:true});</script>
+  
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T7GP6RK8');</script>
+
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +11,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="description" content="Соматодинамика профессора Евгения Блюма: восстановление тела через обновление соединительной ткани. Без операций и лекарств. Марбелья, Испания.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1443785594173920');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1443785594173920&ev=PageView&noscript=1"/></noscript>
+
+
 <style>
 :root{
   --paper:#F5F1E9;--paper-2:#FBF8F2;--ink:#1F1C1A;--graphite:#5A534C;--stone:#8E867C;
@@ -170,8 +166,7 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7GP6RK8"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 <!-- End Google Tag Manager (noscript) -->
 <header class="head"><div class="wrap head-row"><div class="brand">Центр профессора <span>Блюма</span></div><div class="head-meta">Соматодинамика · Марбелья</div></div></header>
 
@@ -183,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="lede">Соматодинамика возвращает телу симметрию, опору и способность к самообновлению — через работу с соединительной тканью. Без операций и лекарств.</p>
     <div class="hero-cta">
       <button class="btn" onclick="openQuiz()">Записаться на диагностику<span class="arr">→</span></button>
-      <p class="hero-note">Ответьте на 8 вопросов — специалист изучит случай и свяжется с вами</p>
+      <p class="hero-note">Оставьте контакты и выберите программу — сотрудник свяжется с вами</p>
     </div>
   </div></div>
   <div class="hero-rule"></div>
@@ -297,7 +292,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap-n">
     <div class="eyebrow">Первый шаг</div><div class="rule c"></div>
     <h2 class="h1">Узнайте, что можно восстановить именно в вашем случае</h2>
-    <p class="lede">Ответьте на несколько вопросов о вашей ситуации. Специалист изучит случай и свяжется с вами по выбранному каналу.</p>
+    <p class="lede">Выберите программу и оставьте контакты. Сотрудник свяжется с вами по выбранному каналу.</p>
     <button class="btn" onclick="openQuiz()">Записаться на диагностику<span class="arr">→</span></button>
   </div>
 </section>
@@ -315,93 +310,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div></footer>
 
 <!-- ============ QUIZ ============ -->
-<div class="quiz-overlay" id="quiz-overlay" onclick="if(event.target===this)closeQuiz()">
-  <div class="quiz-modal" role="dialog" aria-modal="true" aria-label="Анкета">
-    <button class="quiz-close" onclick="closeQuiz()" aria-label="Закрыть">&#10005;</button>
-    <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-bar"></div></div>
-    <div class="quiz-body">
-      <div class="quiz-step active" data-step="1">
-        <div class="quiz-count">Шаг 1 из 8</div>
-        <div class="quiz-q">Как к вам обращаться?</div>
-        <div class="quiz-hint">Имя, чтобы специалист обратился к вам лично.</div>
-        <input class="quiz-input" id="q-name" type="text" placeholder="Ваше имя">
-        <div class="quiz-err" id="err-1"></div>
-        <div class="quiz-nav"><button class="quiz-next" onclick="quizNext(1)">Далее</button></div>
-      </div>
-      <div class="quiz-step" data-step="2">
-        <div class="quiz-count">Шаг 2 из 8</div>
-        <div class="quiz-q">Сколько вам лет?</div>
-        <div class="quiz-hint">Возраст помогает оценить ситуацию точнее.</div>
-        <input class="quiz-input" id="q-age" type="number" min="1" max="120" placeholder="Возраст">
-        <div class="quiz-err" id="err-2"></div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="quizPrev(2)">Назад</button><button class="quiz-next" onclick="quizNext(2)">Далее</button></div>
-      </div>
-      <div class="quiz-step" data-step="3">
-        <div class="quiz-count">Шаг 3 из 8</div>
-        <div class="quiz-q">Что вас беспокоит?</div>
-        <div class="quiz-hint">Опишите своими словами: что беспокоит, как давно, что уже пробовали.</div>
-        <textarea class="quiz-input" id="q-complaint" rows="4" placeholder="Опишите вашу ситуацию…"></textarea>
-        <div class="quiz-err" id="err-3"></div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="quizPrev(3)">Назад</button><button class="quiz-next" onclick="quizNext(3)">Далее</button></div>
-      </div>
-      <div class="quiz-step" data-step="4">
-        <div class="quiz-count">Шаг 4 из 8</div>
-        <div class="quiz-q">Ваш телефон</div>
-        <div class="quiz-hint">Код страны подставится автоматически.</div>
-        <div class="quiz-phone"><select class="quiz-select" id="q-phone-code"></select><input class="quiz-input" id="q-phone" type="tel" placeholder="Номер телефона"></div>
-        <div class="quiz-err" id="err-4"></div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="quizPrev(4)">Назад</button><button class="quiz-next" onclick="quizNext(4)">Далее</button></div>
-      </div>
-      <div class="quiz-step" data-step="5">
-        <div class="quiz-count">Шаг 5 из 8</div>
-        <div class="quiz-q">Ваш email</div>
-        <div class="quiz-hint">Чтобы прислать информацию о программе.</div>
-        <input class="quiz-input" id="q-email" type="email" placeholder="email@example.com">
-        <div class="quiz-err" id="err-5"></div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="quizPrev(5)">Назад</button><button class="quiz-next" onclick="quizNext(5)">Далее</button></div>
-      </div>
-      <div class="quiz-step" data-step="6">
-        <div class="quiz-count">Шаг 6 из 8</div>
-        <div class="quiz-q">Как удобнее связаться?</div>
-        <div class="quiz-hint">Выберите предпочтительный канал.</div>
-        <div class="quiz-cards" id="q-channel">
-          <div class="quiz-card" data-val="WhatsApp" onclick="quizPick(this,'channel')"><span class="quiz-card__check"></span>WhatsApp</div>
-          <div class="quiz-card" data-val="Telegram" onclick="quizPick(this,'channel')"><span class="quiz-card__check"></span>Telegram</div>
-          <div class="quiz-card" data-val="Звонок" onclick="quizPick(this,'channel')"><span class="quiz-card__check"></span>Телефонный звонок</div>
-          <div class="quiz-card" data-val="Email" onclick="quizPick(this,'channel')"><span class="quiz-card__check"></span>Email</div>
-        </div>
-        <div class="quiz-err" id="err-6"></div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="quizPrev(6)">Назад</button><button class="quiz-next" onclick="quizNext(6)">Далее</button></div>
-      </div>
-      <div class="quiz-step" data-step="7">
-        <div class="quiz-count">Шаг 7 из 8</div>
-        <div class="quiz-q">Готовы ли вы приехать в Испанию?</div>
-        <div class="quiz-hint">Программа проходит очно в Марбелье, 10 дней.</div>
-        <div class="quiz-cards" id="q-travel">
-          <div class="quiz-card" data-val="Да, готов(а)" onclick="quizPick(this,'travel')"><span class="quiz-card__check"></span>Да, готов(а)</div>
-          <div class="quiz-card" data-val="Рассматриваю" onclick="quizPick(this,'travel')"><span class="quiz-card__check"></span>Рассматриваю такой вариант</div>
-          <div class="quiz-card" data-val="Нужны детали" onclick="quizPick(this,'travel')"><span class="quiz-card__check"></span>Сначала хочу узнать детали</div>
-        </div>
-        <div class="quiz-err" id="err-7"></div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="quizPrev(7)">Назад</button><button class="quiz-next" onclick="quizNext(7)">Далее</button></div>
-      </div>
-      <div class="quiz-step" data-step="8">
-        <div class="quiz-count">Шаг 8 из 8</div>
-        <div class="quiz-q">Подтверждение бюджета</div>
-        <div class="quiz-price"><p>Индивидуальная программа восстановления на 10 дней — <strong>от 4&nbsp;000&nbsp;€</strong>. Точная стоимость зависит от состояния и задач.</p></div>
-        <div class="quiz-hint">Подтвердите, что минимальная стоимость для вас приемлема.</div>
-        <div class="quiz-cards" id="q-budget">
-          <div class="quiz-card" data-val="Да" onclick="quizPick(this,'budget')"><span class="quiz-card__check"></span>Да, мне подходит</div>
-          <div class="quiz-card" data-val="Нет" onclick="quizPick(this,'budget')"><span class="quiz-card__check"></span>Нет</div>
-        </div>
-        <div class="quiz-err" id="err-8"></div>
-        <div class="quiz-nav"><button class="quiz-back" onclick="quizPrev(8)">Назад</button><button class="quiz-next" id="quiz-submit" onclick="quizSubmit()">Отправить анкету →</button></div>
-        <div class="quiz-policy">Нажимая кнопку, вы соглашаетесь с <a href="#" onclick="closeQuiz();openLegal('legal-personal');return false;">политикой обработки персональных данных</a>.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<div class="quiz-overlay" id="quiz-overlay" role="dialog" aria-modal="true" aria-label="Заявка" style="display:none">
+ <div style="font-family:Arial,sans-serif;background:#FBF8F2;padding:30px;max-width:540px;width:100%;max-height:92vh;overflow:auto;position:relative">
+ <button type="button" onclick="closeBooking()" aria-label="Закрыть" style="float:right">✕</button>
+ <h2>Оставить заявку</h2><p>Оставьте контакты, и сотрудник клиники свяжется с вами.</p>
+ <form id="contact-form" data-source="connective">
+ <label>Имя<input class="quiz-input" name="name" maxlength="100" autocomplete="given-name" required></label>
+ <label>Телефон с кодом страны<input class="quiz-input" name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="+34 …" required></label>
+ <label>Email<input class="quiz-input" name="email" type="email" autocomplete="email" maxlength="254" required></label>
+ <label>Меня интересует<select class="quiz-input" name="program" required><option value="">Выберите программу</option><option value="Восстановительная программа на 10 дней">Восстановительная программа на 10 дней</option><option value="Интенсивная программа на 14 дней">Интенсивная программа на 14 дней</option><option value="Восстановительная программа на 21 день">Восстановительная программа на 21 день</option><option value="Интенсивная программа на 21 день">Интенсивная программа на 21 день</option></select></label>
+ <label>Возможность приезда в Испанию<select class="quiz-input" name="travel" required><option value="">Выберите вариант</option><option>Да</option><option>Рассматриваю</option><option>Нужны детали</option></select></label>
+ <label>Как с вами связаться?<select class="quiz-input" name="channel" required><option>WhatsApp</option><option>Email</option><option>Звонок</option></select></label>
+ <label style="display:block;margin:15px 0"><input name="consent" type="checkbox" required> Я согласен(на) на обработку контактов Cyberconnect S.R.L. и их передачу клинике для обратной связи. <a href="#" onclick="openLegal('legal-personal');return false">Политика обработки данных</a></label>
+ <button class="quiz-next" type="submit">Отправить заявку</button><p id="form-status" role="status" aria-live="polite"></p>
+ </form></div></div>
 <!-- ============ LEGAL MODALS ============ -->
 <div class="legal-overlay" id="legal-offer" onclick="if(event.target===this)closeLegal('legal-offer')">
   <div class="legal-modal"><button class="legal-close" onclick="closeLegal('legal-offer')">&#10005;</button>
@@ -414,63 +336,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="legal-overlay" id="legal-personal" onclick="if(event.target===this)closeLegal('legal-personal')">
   <div class="legal-modal"><button class="legal-close" onclick="closeLegal('legal-personal')">&#10005;</button>
-    <h2>Политика обработки персональных данных</h2>
-    <p>Оставляя данные в форме, вы даёте согласие BLUM CENTRE SL (CIF B93067445, Marbella, España) на обработку указанных персональных данных (имя, возраст, контактные данные, описание обращения) с целью обратной связи и предоставления информации о программах центра.</p>
-    <h3>Объём данных</h3>
-    <p>Обрабатываются только данные, предоставленные вами добровольно. Данные не передаются третьим лицам, кроме случаев, предусмотренных законом.</p>
-    <h3>Хранение и права</h3>
-    <p>Данные хранятся в течение срока, необходимого для обработки обращения. В соответствии с GDPR вы вправе запросить доступ, исправление или удаление своих данных.</p>
-    <h3>Отзыв согласия</h3>
-    <p>Согласие может быть отозвано в любой момент путём обращения к оператору.</p>
-  </div>
+    <h2>Обработка персональных данных</h2><p>Контакты собирает Cyberconnect S.R.L., J40/9426/2023, идентификационный номер 48200445. Адрес: Municipiul Bucureşti, Sector 3, B-Dul Unirii, Nr.61, Bl.F3, Sc.4, Et.2, Ap.208, Румыния.</p><p>Форма собирает имя, телефон, email, выбранную программу, возможность приезда и предпочтительный канал связи. Не указывайте симптомы, диагнозы и историю болезни.</p><p>Цель: ответить на запрос о программе и организовать связь с клиникой. Контакты передаются сотрудникам BLUM CENTRE SL посредством WhatsApp. Для хранения используются Cloudflare Workers KV и Google Sheets.</p><p>Срок хранения заявки — 90 дней с даты получения, без продления при редактировании. Дополнительные копии подлежат удалению в тот же срок.</p><p>Вы можете отозвать согласие и запросить доступ, исправление или удаление данных, обратившись по адресу doctor@clinicblum.com.</p><p>Аналитика и реклама подключаются только после отдельного согласия в настройках cookie. Отказ не препятствует отправке заявки.</p></div>
 </div>
 <div class="legal-overlay" id="legal-cookie" onclick="if(event.target===this)closeLegal('legal-cookie')">
   <div class="legal-modal"><button class="legal-close" onclick="closeLegal('legal-cookie')">&#10005;</button>
-    <h2>Политика использования cookie</h2>
-    <p>Сайт использует файлы cookie и аналогичные технологии для корректной работы, анализа посещаемости и повышения удобства использования.</p>
-    <h3>Какие cookie используются</h3>
-    <p>Технические cookie, необходимые для работы сайта, а также аналитические и маркетинговые cookie (включая Meta Pixel) для оценки эффективности.</p>
-    <h3>Управление</h3>
-    <p>Вы можете отключить cookie в настройках браузера. Это может повлиять на работу отдельных функций сайта.</p>
-  </div>
+    <h2>Использование cookie</h2><p>До согласия загружаются только обязательные компоненты сайта. Meta Pixel, Google Tag Manager, Google Analytics и встроенный YouTube загружаются после нажатия «Принять». Отказ не ограничивает отправку заявки.</p><p>Изменить выбор можно кнопкой «Настройки cookie» внизу страницы.</p><p><a href="/cookies.html">Таблица cookie: название, тип, срок хранения и поставщик</a></p></div>
 </div>
-<div class="cookie" id="cookie-banner">
-  <p>Мы используем cookie для корректной работы сайта и аналитики. Подробнее — в <a href="#" onclick="openLegal('legal-cookie');return false;">политике cookie</a>.</p>
-  <button onclick="acceptCookie()">Принять</button>
-</div>
+
 <script>
-var LEAD_URL='https://leads.profblum.org/lead';
-var THANKYOU_URL='/connective-thank-you';
-var PHONE_CODES=[{c:'+34',n:'ES'},{c:'+7',n:'RU/KZ'},{c:'+380',n:'UA'},{c:'+375',n:'BY'},{c:'+44',n:'GB'},{c:'+49',n:'DE'},{c:'+33',n:'FR'},{c:'+39',n:'IT'},{c:'+351',n:'PT'},{c:'+41',n:'CH'},{c:'+43',n:'AT'},{c:'+31',n:'NL'},{c:'+32',n:'BE'},{c:'+48',n:'PL'},{c:'+420',n:'CZ'},{c:'+371',n:'LV'},{c:'+370',n:'LT'},{c:'+372',n:'EE'},{c:'+972',n:'IL'},{c:'+971',n:'AE'},{c:'+1',n:'US/CA'},{c:'+90',n:'TR'},{c:'+357',n:'CY'},{c:'+995',n:'GE'}];
-(function(){var sel=document.getElementById('q-phone-code');PHONE_CODES.forEach(function(p){var o=document.createElement('option');o.value=p.c;o.textContent=p.c+' '+p.n;sel.appendChild(o);});sel.value='+34';fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(d){if(d&&d.country_calling_code){for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===d.country_calling_code){sel.value=d.country_calling_code;break;}}}}).catch(function(){});})();
-var quizData={channel:'',travel:'',budget:''},totalSteps=8;
-function openQuiz(){document.getElementById('quiz-overlay').classList.add('active');document.body.style.overflow='hidden';if(window.fbq){fbq('track','Lead',{content_name:'quiz_open'});}}
-function closeQuiz(){document.getElementById('quiz-overlay').classList.remove('active');document.body.style.overflow='';}
-function goStep(n){document.querySelectorAll('.quiz-step').forEach(function(s){s.classList.remove('active');});var el=document.querySelector('.quiz-step[data-step="'+n+'"]');if(el)el.classList.add('active');document.getElementById('quiz-bar').style.width=(n/totalSteps*100)+'%';}
-function quizNext(s){if(validateStep(s))goStep(s+1);}
-function quizPrev(s){goStep(s-1);}
-function quizPick(el,key){var p=el.parentNode;p.querySelectorAll('.quiz-card').forEach(function(c){c.classList.remove('sel');});el.classList.add('sel');quizData[key]=el.getAttribute('data-val');}
-function showErr(s,m){document.getElementById('err-'+s).textContent=m;}
-function validateStep(s){showErr(s,'');
- if(s===1){if(!document.getElementById('q-name').value.trim()){showErr(1,'Пожалуйста, введите имя');return false;}}
- if(s===2){var a=parseInt(document.getElementById('q-age').value,10);if(!a||a<1||a>120){showErr(2,'Укажите корректный возраст');return false;}}
- if(s===3){if(!document.getElementById('q-complaint').value.trim()){showErr(3,'Опишите, что вас беспокоит');return false;}}
- if(s===4){if(!document.getElementById('q-phone').value.trim()){showErr(4,'Введите номер телефона');return false;}}
- if(s===5){var em=document.getElementById('q-email').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){showErr(5,'Введите корректный email');return false;}}
- if(s===6){if(!quizData.channel){showErr(6,'Выберите канал связи');return false;}}
- if(s===7){if(!quizData.travel){showErr(7,'Пожалуйста, выберите вариант');return false;}}
- if(s===8){if(!quizData.budget){showErr(8,'Пожалуйста, подтвердите');return false;}}
- return true;}
-function quizSubmit(){if(!validateStep(8))return;var btn=document.getElementById('quiz-submit');btn.disabled=true;btn.textContent='Отправляем…';
- var payload={source:'connective',name:document.getElementById('q-name').value.trim(),age:document.getElementById('q-age').value.trim(),complaint:document.getElementById('q-complaint').value.trim(),phone:document.getElementById('q-phone-code').value+' '+document.getElementById('q-phone').value.trim(),email:document.getElementById('q-email').value.trim(),channel:quizData.channel,travel:quizData.travel,budget:quizData.budget,page:location.href,time:new Date().toISOString()};
- if(window.fbq){fbq('track','CompleteRegistration',{content_name:'quiz_submit'});}
- fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);window.location.href=THANKYOU_URL;}).catch(function(){window.location.href=THANKYOU_URL;});}
 function openLegal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden';}
 function closeLegal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow='';}
-function acceptCookie(){document.getElementById('cookie-banner').classList.remove('show');try{localStorage.setItem('blum_cookie','1');}catch(e){}}
-(function(){try{if(!localStorage.getItem('blum_cookie')){setTimeout(function(){document.getElementById('cookie-banner').classList.add('show');},1200);}}catch(e){document.getElementById('cookie-banner').classList.add('show');}})();
+
 (function(){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});})();
 function openVideo(id){
+ if(!window.blumHasConsent()){window.blumShowConsent();return;}
   var overlay=document.getElementById('video-overlay');
   var frame=document.getElementById('video-frame');
   var fallback=document.getElementById('video-fallback');
@@ -505,5 +384,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeQuiz()
   </div>
 </div>
 
-</body>
+<script src="/privacy.js" defer></script><script src="/contact.js" defer></script></body>
 </html>
+
