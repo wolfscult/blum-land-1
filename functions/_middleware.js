@@ -1,4 +1,4 @@
-const pages=new Set(['/','/index.html','/main','/main/','/connective','/connective/','/connective.html']);
+const pages=new Set(['/','/index.html','/main','/main/','/connective','/connective/','/connective.html','/thank-you','/thank-you/','/thank-you.html','/connective-thank-you','/connective-thank-you/','/connective-thank-you.html']);
 const assets=new Set(['/privacy.js','/contact.js','/tracker-bootstrap.js','/programs.json','/cookies.html','/cookies','/cookies/','/robots.txt','/sitemap.xml','/favicon.ico']);
 export async function onRequest(context){
  const path=new URL(context.request.url).pathname;
